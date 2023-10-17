@@ -3,6 +3,7 @@ using MyAcademyCarBook.BusinessLayer.Concrete;
 using MyAcademyCarBook.DataAccessLayer.Abstract;
 using MyAcademyCarBook.DataAccessLayer.Concrete;
 using MyAcademyCarBook.DataAccessLayer.EntityFramework;
+using MyAcademyCarBook.EntityLayer.Concrete;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,7 +12,14 @@ builder.Services.AddDbContext<CarBookContext>();
 builder.Services.AddScoped<IBrandDal, EfBrandDal>();
 builder.Services.AddScoped<IBrandService, BrandManager>();
 
+
+builder.Services.AddScoped<ICarService,CarManager>();
+builder.Services.AddScoped<ICarDal,EfCarDal>();
+
+builder.Services.AddScoped<ICarStatusDal, EfCarStatusDal>();
+builder.Services.AddScoped<ICarStatusService,CarStatusManager>();
 builder.Services.AddControllersWithViews();
+
 
 
 var app = builder.Build();
