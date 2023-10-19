@@ -1,4 +1,6 @@
-﻿using MyAcademyCarBook.EntityLayer.Concrete;
+﻿using Microsoft.EntityFrameworkCore;
+using MyAcademyCarBook.DataAccessLayer.Concrete;
+using MyAcademyCarBook.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +11,7 @@ namespace MyAcademyCarBook.DataAccessLayer.Abstract
 {
     public interface IPriceDal : IGenericDal<Price>
     {
-
+        List<Price> GetPricesWithCars();
+       
     }
 }

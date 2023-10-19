@@ -27,10 +27,15 @@ namespace MyAcademyCarBook.BusinessLayer.Concrete
         {
             return _priceDal.GetById(id);
         }
-
+  
         public List<Price> TGetListAll()
         {
           return _priceDal.GetAll();
+        }
+
+        public List<Price> TGetPricesWithCars()
+        {
+            return _priceDal.GetPricesWithCars();
         }
 
         public void TInsert(Price entity)
