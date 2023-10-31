@@ -24,6 +24,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IPriceDal,EfPriceDal>();
 builder.Services.AddScoped<IPriceService,PriceManager>();
 
+builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<CarBookContext>();
+
 
 var app = builder.Build();
 
