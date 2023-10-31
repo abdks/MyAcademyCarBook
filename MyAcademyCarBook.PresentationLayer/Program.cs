@@ -4,6 +4,7 @@ using MyAcademyCarBook.DataAccessLayer.Abstract;
 using MyAcademyCarBook.DataAccessLayer.Concrete;
 using MyAcademyCarBook.DataAccessLayer.EntityFramework;
 using MyAcademyCarBook.EntityLayer.Concrete;
+using MyAcademyCarBook.PresentationLayer.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,7 +25,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IPriceDal,EfPriceDal>();
 builder.Services.AddScoped<IPriceService,PriceManager>();
 
-builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<CarBookContext>();
+builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<CarBookContext>().AddErrorDescriber<CustomIdentityValidator>();
 
 
 var app = builder.Build();
@@ -41,7 +42,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
