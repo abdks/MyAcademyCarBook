@@ -24,8 +24,16 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IServiceDal,EfServiceDal>();
 builder.Services.AddScoped<IServiceService, ServiceManager>();
 
-builder.Services.AddScoped<HowItWorkStepDal, EfHowItWorksStepDal>();
+builder.Services.AddScoped<IHowItWorkStepDal, EfHowItWorksStepDal>();
 builder.Services.AddScoped<IHowItWorksStepService, IHowItWorkStepManager>();
+
+builder.Services.AddScoped<ICarCategoryService, CarCategoryManager>();
+builder.Services.AddScoped<ICarCategoryDal, EfCarCategoryDal>();
+
+
+builder.Services.AddScoped<ICarDetailDal, EfCarDetailDal>();
+builder.Services.AddScoped<ICarDetailService, CarDetailManager>();
+
 
 builder.Services.AddScoped<IPriceDal,EfPriceDal>();
 builder.Services.AddScoped<IPriceService,PriceManager>();

@@ -23,6 +23,7 @@ namespace MyAcademyCarBook.DataAccessLayer.Concrete
         public DbSet<Price> Prices { get; set; }
         public DbSet<Service> Services { get; set; }
         public DbSet<HowItWorkStep> HowItWorkStep { get; set; }
+        public DbSet<CarDetail>  CarDetails{ get; set; }
         //override = ezmek override olduğu yerde işlemler bizim istediğimiz formatta yapılır 
     }
 }

@@ -9,7 +9,9 @@ using System.Threading.Tasks;
 
 namespace MyAcademyCarBook.DataAccessLayer.EntityFramework
 {
-    public class EfHowItWorksStepDal: GenericRepository<HowItWorkStep>,HowItWorkStepDal
+    public class EfHowItWorksStepDal: GenericRepository<HowItWorkStep>,IHowItWorkStepDal
     {
     }
+
+
 }

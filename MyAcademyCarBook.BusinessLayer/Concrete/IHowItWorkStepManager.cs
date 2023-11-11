@@ -11,9 +11,9 @@ namespace MyAcademyCarBook.BusinessLayer.Concrete
 {
     public class IHowItWorkStepManager : IHowItWorksStepService
     {
-        private readonly HowItWorkStepDal _howItWorkStepDal;
+        private readonly IHowItWorkStepDal _howItWorkStepDal;
 
-        public IHowItWorkStepManager(HowItWorkStepDal howItWorkStepDal)
+        public IHowItWorkStepManager(IHowItWorkStepDal howItWorkStepDal)
         {
             _howItWorkStepDal = howItWorkStepDal;
         }
