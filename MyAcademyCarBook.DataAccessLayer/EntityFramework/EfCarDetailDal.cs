@@ -1,4 +1,5 @@
-﻿using MyAcademyCarBook.DataAccessLayer.Abstract;
+﻿using Microsoft.EntityFrameworkCore;
+using MyAcademyCarBook.DataAccessLayer.Abstract;
 using MyAcademyCarBook.DataAccessLayer.Concrete;
 using MyAcademyCarBook.DataAccessLayer.Repositories;
 using MyAcademyCarBook.EntityLayer.Concrete;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace MyAcademyCarBook.DataAccessLayer.EntityFramework
 {
-    public class EfCarDetailDal : GenericRepository<CarDetail>, ICarDetailDal
+    public class EfCarDetailDal : GenericRepository<CarDetails>, ICarDetailDal
     {
         //public CarDetail GetCarDetailByCarID(int id)
         //{
@@ -19,7 +20,7 @@ namespace MyAcademyCarBook.DataAccessLayer.EntityFramework
         //    var values = context.CarDetails.Where(x=>x.CarID == id).FirstOrDefault();
         //    return values;
         //}
-        public CarDetail GetCarDetailByCarID(int id)
+        public CarDetails GetCarDetailByCarID(int id)
         {
             using (var context = new CarBookContext())
             {
@@ -33,5 +34,11 @@ namespace MyAcademyCarBook.DataAccessLayer.EntityFramework
             }
         }
 
+        public CarDetails GetCarDetailWithAuthor(int id)
+        {
+            var context = new CarBookContext(); 
+            var values = context.CarDetails.Include(x=>x.AppUser).Where(y=>y.CarID == id).FirstOrDefault();
+            return values;
+        }
     }
 }

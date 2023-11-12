@@ -18,32 +18,37 @@ namespace MyAcademyCarBook.BusinessLayer.Concrete
             _carDetailDal = carDetailDal;
         }
 
-        public void TDelete(CarDetail entity)
+        public void TDelete(CarDetails entity)
         {
             _carDetailDal.Delete(entity);
         }
 
-        public CarDetail TGetById(int id)
+        public CarDetails TGetById(int id)
         {
             return _carDetailDal.GetById(id);
         }
 
-        public CarDetail TGetCarDetailByCarID(int id)
+        public CarDetails TGetCarDetailByCarID(int id)
         {
             return _carDetailDal.GetCarDetailByCarID(id);
         }
 
-        public List<CarDetail> TGetListAll()
+        public CarDetails TGetCarDetailWithAuthor(int id)
+        {
+            return _carDetailDal.GetCarDetailWithAuthor(id);
+        }
+
+        public List<CarDetails> TGetListAll()
         {
             return _carDetailDal.GetAll();
         }
 
-        public void TInsert(CarDetail entity)
+        public void TInsert(CarDetails entity)
         {
             _carDetailDal.Insert(entity);
         }
 
-        public void TUpdate(CarDetail entity)
+        public void TUpdate(CarDetails entity)
         {
             _carDetailDal.Update(entity);
         }

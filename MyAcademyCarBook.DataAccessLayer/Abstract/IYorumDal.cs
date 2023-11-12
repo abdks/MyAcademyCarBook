@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace MyAcademyCarBook.DataAccessLayer.Abstract
 {
-    public interface ICarDetailDal:IGenericDal<CarDetails>
+    public interface IYorumDal:IGenericDal<Yorum>
     {
-        
-        CarDetails GetCarDetailByCarID(int id);
-        CarDetails GetCarDetailWithAuthor(int id);
+        List<Yorum> GetYorumsByCar(int id);
     }
 }

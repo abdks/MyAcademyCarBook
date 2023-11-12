@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace MyAcademyCarBook.BusinessLayer.Abstract
 {
-    public  interface ICarDetailService:IGenericService<CarDetails>
+    public interface IYorumService:IGenericService<Yorum>
     {
-        CarDetails TGetCarDetailWithAuthor(int id);
-
-        CarDetails TGetCarDetailByCarID(int id);
+        List<Yorum> TGetYorumsByCar(int id);
     }
 }

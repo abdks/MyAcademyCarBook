@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace MyAcademyCarBook.EntityLayer.Concrete
 {
-    public class CarDetail
+    public class CarDetails
     {
-        public int CarDetailID { get; set; }
+        public int CarDetailsID { get; set; }
         public string Description { get; set; }
         public int CarID { get; set; }
         public Car Car { get; set; }

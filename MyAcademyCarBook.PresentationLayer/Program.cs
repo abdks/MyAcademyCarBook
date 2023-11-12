@@ -1,3 +1,4 @@
+using FluentValidation.AspNetCore;
 using MyAcademyCarBook.BusinessLayer.Abstract;
 using MyAcademyCarBook.BusinessLayer.Concrete;
 using MyAcademyCarBook.DataAccessLayer.Abstract;
@@ -34,13 +35,17 @@ builder.Services.AddScoped<ICarCategoryDal, EfCarCategoryDal>();
 builder.Services.AddScoped<ICarDetailDal, EfCarDetailDal>();
 builder.Services.AddScoped<ICarDetailService, CarDetailManager>();
 
+builder.Services.AddScoped<IYorumDal, EfYorumDal>();
+builder.Services.AddScoped<IYorumService, YorumManager>();
+
+
 
 builder.Services.AddScoped<IPriceDal,EfPriceDal>();
 builder.Services.AddScoped<IPriceService,PriceManager>();
 
 builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<CarBookContext>().AddErrorDescriber<CustomIdentityValidator>();
 
-
+builder.Services.AddControllersWithViews().AddFluentValidation();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
