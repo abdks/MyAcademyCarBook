@@ -13,7 +13,7 @@ namespace MyAcademyCarBook.PresentationLayer.Controllers
             _carService = carService;
             _carDetailService = carDetailService;
         }
-
+        //deneme deneme deneme deneme
         public IActionResult Index()
         {
             var values = _carService.TGetListAll();
