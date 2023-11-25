@@ -1,0 +1,33 @@
+﻿@model List<MyAcademyCarBook.EntityLayer.Concrete.ContactForm>
+
+@{
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<br />
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>Mail</th>
+        <th>Mesaj</th>
+        <th>Sil</th>
+       
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ContactFormID</td>
+            <td>@item.Name</td>
+            <td>@item.SurName</td>
+            <td>@item.Mail</td>
+            <td>@item.Message</td>
+            
+            <td><a href="/Contact/DeleteContact2/@item.ContactFormID" class="btn btn-danger">Sil</a></td>
+        </tr>
+    }
+
+</table>
+

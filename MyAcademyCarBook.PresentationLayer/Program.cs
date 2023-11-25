@@ -28,8 +28,24 @@ builder.Services.AddScoped<IServiceService, ServiceManager>();
 builder.Services.AddScoped<IHowItWorkStepDal, EfHowItWorksStepDal>();
 builder.Services.AddScoped<IHowItWorksStepService, IHowItWorkStepManager>();
 
+
+builder.Services.AddScoped<IContactDal, EfContactDal>();
+builder.Services.AddScoped<IContactService, ContactManager>();
+
+
+builder.Services.AddScoped<IContactFormDal, EfContactFormDal>();
+builder.Services.AddScoped<IContactFormService, ContactFormManager>();
+
+
 builder.Services.AddScoped<ICarCategoryService, CarCategoryManager>();
 builder.Services.AddScoped<ICarCategoryDal, EfCarCategoryDal>();
+
+builder.Services.AddScoped<IAbouttService, AboutManager>();
+builder.Services.AddScoped<IAboutDal, EfAboutDal>();
+
+builder.Services.AddScoped<IAboutDService, AboutWManager>();
+builder.Services.AddScoped<IAboutWDal, EfAboutWDal>();
+
 
 
 builder.Services.AddScoped<ICarDetailDal, EfCarDetailDal>();

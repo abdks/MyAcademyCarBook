@@ -1,0 +1,34 @@
+﻿@model MyAcademyCarBook.EntityLayer.Concrete.Contact
+
+@{
+    ViewData["Title"] = "UpdateContact";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h3>İletişim Güncelleme Sayfası</h3>
+<form method="post">
+    <input type="hidden" asp-for="ContactID" />
+    <label>Adres</label>
+    <input type="text" asp-for="Adress" class="form-control" style="border:2px solid #2222" />
+    <br />
+    <label>Telefon</label>
+    <input type="text" asp-for="Tel" class="form-control" style="border:2px solid #2222" />
+    <br />
+    <label>Mail</label>
+    <input type="text" asp-for="Mail" class="form-control" style="border:2px solid #2222" />
+    <br />
+    <label>Facebook</label>
+    <input type="text" asp-for="Facebook" class="form-control" style="border:2px solid #2222" />
+    <br />
+    <label>İnstagram</label>
+    <input type="text" asp-for="Instagram" class="form-control" style="border:2px solid #2222" />
+    <br />
+    <label>Twitter</label>
+    <input type="text" asp-for="Twitter" class="form-control" style="border:2px solid #2222" />
+    <br />
+    <label>Linkedln</label>
+    <input type="text" asp-for="Linkedln" class="form-control" style="border:2px solid #2222" />
+    <br />
+
+    <button class="btn btn-success">Güncelle</button>
+</form>

@@ -34,7 +34,7 @@ namespace MyAcademyCarBook.PresentationLayer.Controllers
             //return View(values).ToPagedList(a,3);
             var result = _carService.TGetAllCarsWithBrands();
 
-            var values = result.ToPagedList(page, 3);
+            var values = result.ToPagedList(page, 6);
             return View(values);
 
         }

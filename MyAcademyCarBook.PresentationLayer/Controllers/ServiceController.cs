@@ -40,7 +40,8 @@ namespace MyAcademyCarBook.PresentationLayer.Controllers
             if (result.IsValid)
             {
                 _serviceService.TInsert(service);
-                return RedirectToAction("Index");
+                return RedirectToAction("ServiceList");
+
             }
             else
             {
@@ -51,6 +52,25 @@ namespace MyAcademyCarBook.PresentationLayer.Controllers
                 return View();
 
             }
+        }
+        public IActionResult DeleteService(int id)
+        {
+            var value = _serviceService.TGetById(id);
+            _serviceService.TDelete(value);
+            return RedirectToAction("ServiceList");
+        }
+        [HttpGet]
+        public IActionResult UpdateService(int id)
+        {
+            var value = _serviceService.TGetById(id);
+            return View(value);
+        }
+
+        [HttpPost]
+        public IActionResult UpdateService(Service service)
+        {
+            _serviceService.TUpdate(service);
+            return RedirectToAction("ServiceList");
         }
     }
 }

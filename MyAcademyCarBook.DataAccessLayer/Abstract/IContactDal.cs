@@ -5,10 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyAcademyCarBook.BusinessLayer.Abstract
+namespace MyAcademyCarBook.DataAccessLayer.Abstract
 {
-    public interface IBrandService : IGenericService<Brand>
+    public interface IContactDal:IGenericDal<Contact>
     {
-       
     }
 }

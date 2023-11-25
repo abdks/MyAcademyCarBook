@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace MyAcademyCarBook.BusinessLayer.Abstract
 {
-    public interface IBrandService : IGenericService<Brand>
+    public interface IContactService : IGenericService<Contact>
     {
-       
     }
 }

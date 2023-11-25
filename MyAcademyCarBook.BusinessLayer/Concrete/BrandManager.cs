@@ -25,17 +25,17 @@ namespace MyAcademyCarBook.BusinessLayer.Concrete
 
         public Brand TGetById(int id)
         {
-            return _brandDal.GetById(id);
+           return _brandDal.GetById(id);
         }
 
         public List<Brand> TGetListAll()
         {
-            return _brandDal.GetAll();
+           return _brandDal.GetAll();
         }
 
         public void TInsert(Brand entity)
         {
-            _brandDal.Insert(entity);
+           _brandDal.Insert(entity);    
         }
 
         public void TUpdate(Brand entity)
@@ -44,3 +44,5 @@ namespace MyAcademyCarBook.BusinessLayer.Concrete
         }
     }
 }
+
+

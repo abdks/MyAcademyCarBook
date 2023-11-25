@@ -25,6 +25,10 @@ namespace MyAcademyCarBook.DataAccessLayer.Concrete
         public DbSet<HowItWorkStep> HowItWorkStep { get; set; }
         public DbSet<CarDetails>  CarDetails{ get; set; }
         public DbSet<Yorum> Yorums { get; set; }
+        public DbSet<Team> Teams { get; set; }
+        public DbSet<About>Abouts { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
+        public DbSet<ContactForm> ContactForm { get; set; }
     
         //override = ezmek override olduğu yerde işlemler bizim istediğimiz formatta yapılır 
     }

@@ -1,0 +1,29 @@
+﻿@model MyAcademyCarBook.EntityLayer.Concrete.About
+@{
+    ViewData["Title"] = "AddAbout";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h3>Yeni Takım Arkadaşı Girişi</h3>
+
+<form method="post">
+    <label>Açıklama</label>
+    <input type="text" style="border:2px solid #2222" asp-for="AboutDescription" class="form-control" />
+    <br />
+    <label>Tarihçe</label>
+    <input type="text" style="border:2px solid #2222" asp-for="AboutHistory" class="form-control" />
+    <br />
+    <label>Açıklama Resimi</label>
+    <input type="text" style="border:2px solid #2222" asp-for="AboutImageOne" class="form-control" />
+    <br />
+    <label>Tarihçe Resimi</label>
+    <input type="text" style="border:2px solid #2222" asp-for="AboutImageTwo" class="form-control" />
+    <br />
+  
+
+    <button class="btn btn-primary">Hakkında Kaydet</button>
+
+
+
+
+</form>

@@ -23,6 +23,11 @@ namespace MyAcademyCarBook.BusinessLayer.Concrete
             _carDetailDal.Delete(entity);
         }
 
+        public void TDelete(Brand entity)
+        {
+            throw new NotImplementedException();
+        }
+
         public CarDetails TGetById(int id)
         {
             return _carDetailDal.GetById(id);

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyAcademyCarBook.EntityLayer.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,5 +14,6 @@ namespace MyAcademyCarBook.BusinessLayer.Abstract
         void TDelete(T entity);
         List<T> TGetListAll();
         T TGetById(int id);
+       
     }
 }

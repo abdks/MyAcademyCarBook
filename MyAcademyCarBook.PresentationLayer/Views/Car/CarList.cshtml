@@ -7,7 +7,37 @@
     Layout = "~/Views/UILayout/Index.cshtml";
     
 }
+<style>
+    .pagination-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+    }
 
+        .pagination-container .pagination li {
+            margin: 0 5px;
+            font-size: 18px;
+            list-style: none;
+            display: inline-block;
+        }
+
+            .pagination-container .pagination li a {
+                color: #fff;
+                background-color: #343a40; /* Dark background color */
+                padding: 8px 16px;
+                border-radius: 5px;
+                transition: background-color 0.3s ease;
+            }
+
+            .pagination-container .pagination li.active a {
+                background-color: #28a745; /* Green color for active page */
+            }
+
+            .pagination-container .pagination li a:hover {
+                background-color: #007bff; /* Blue color on hover */
+            }
+</style>
 
 <div class="site-section bg-light">
     <div class="container">
@@ -58,6 +88,7 @@
             </div>
 
             }
+            <br /><br /><br />
             <div class="row mt-5">
                 <div class="col text-center">
                     <div class="block-27 text-center">

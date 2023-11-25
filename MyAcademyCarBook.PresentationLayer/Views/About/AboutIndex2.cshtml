@@ -1,0 +1,37 @@
+﻿@model List<MyAcademyCarBook.EntityLayer.Concrete.About>
+
+@{
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<br />
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Açıklama</th>
+        <th>Tarihçe</th>
+        <th>Resim1</th>
+        <th>Resim2</th>
+
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.AboutID</td>
+
+            <td>@item.AboutDescription</td>
+            <td>@item.AboutHistory</td>
+            <td><img src="@item.AboutImageOne" width="200px" height="200px" /></td>
+            <td><img src="@item.AboutImageTwo" width="200px" height="200px" /></td>
+          
+            <td><a href="/About/DeleteAbout2/@item.AboutID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/About/UpdateAbout2/@item.AboutID" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+
+</table>
+<a href="/About/AddAbout2" class="btn btn-primary">Yeni Hakkında Metin Girişi</a>
+
