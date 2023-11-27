@@ -40,6 +40,16 @@ builder.Services.AddScoped<IContactFormService, ContactFormManager>();
 builder.Services.AddScoped<ICarCategoryService, CarCategoryManager>();
 builder.Services.AddScoped<ICarCategoryDal, EfCarCategoryDal>();
 
+
+builder.Services.AddScoped<IEndServiceService, IEndServiceManager>();
+builder.Services.AddScoped<IEndServiceDal, EfEndServiceDal>();
+
+
+
+builder.Services.AddScoped<IReferenceService, IReferenceManager>();
+builder.Services.AddScoped<IReferenceDal, EfReferenceDal>();
+
+
 builder.Services.AddScoped<IAbouttService, AboutManager>();
 builder.Services.AddScoped<IAboutDal, EfAboutDal>();
 

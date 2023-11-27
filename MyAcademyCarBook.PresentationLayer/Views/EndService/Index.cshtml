@@ -1,0 +1,33 @@
+﻿@model List<MyAcademyCarBook.EntityLayer.Concrete.EndService>
+
+@{
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<br />
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Hizmet Başlığı</th>
+        <th>Hizmet Açıklaması</th>
+        <th>Hizmet Resimi</th>
+
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.EndServiceID</td>
+            <td>@item.ServiceTitle</td>
+            <td>@item.ServiceDescription</td>
+            <td><img src="@item.ServiceImage" width="150px"height="150px"/></td>
+            <td><a href="/EndService/DeleteService/@item.EndServiceID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/EndService/UpdateService/@item.EndServiceID" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+
+</table>
+<a href="/EndService/AddService" class="btn btn-primary">Yeni Hizmet Girişi</a>
+

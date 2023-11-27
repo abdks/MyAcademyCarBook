@@ -1,0 +1,32 @@
+﻿@model List<MyAcademyCarBook.EntityLayer.Concrete.Reference>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h3>Referans Listesi</h3>
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Ad-Soyad</th>
+        <th>Açıklama</th>
+        <th>Resim</th>
+        <th>Güncelle</th>
+        <th>Sil</th>
+
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.ReferenceID</td>
+            <td>@x.AdSoyad</td>
+            <td>@x.Açıklama</td>
+            <td><img src="@x.Resim" width="60px" height="60px" /></td>
+            <td><a href="/Reference/RemoveReference/@x.ReferenceID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Reference/UpdateReference/@x.ReferenceID" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+
+</table>
+<a href="/Reference/CreateReference" class="btn btn-primary">Yeni Referans Girişi</a>
