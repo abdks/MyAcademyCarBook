@@ -1,4 +1,5 @@
-﻿using MyAcademyCarBook.BusinessLayer.Abstract;
+﻿using Microsoft.EntityFrameworkCore;
+using MyAcademyCarBook.BusinessLayer.Abstract;
 using MyAcademyCarBook.DataAccessLayer.Abstract;
 using MyAcademyCarBook.EntityLayer.Concrete;
 using System;
@@ -45,14 +46,32 @@ namespace MyAcademyCarBook.BusinessLayer.Concrete
 
         public void TInsert(Car entity)
         {
-           if(entity.Year >= 2010 && entity.Prices.Count > 0 && entity.Km <= 500000)
+            try
             {
+                if (entity == null)
+                {
+                    throw new ArgumentNullException(nameof(entity), "Car entity cannot be null.");
+                }
+
+                if (entity.Year < 2000)
+                {
+                    throw new ArgumentException("Car year must be 2010 or later.", nameof(entity.Year));
+                }
+
+                // Diğer hata kontrolleri buraya eklenebilir
+
                 _carDal.Insert(entity);
             }
-           //hata mesajı ---> fluent validation
-
+            catch (Exception ex)
+            {
+                // Hata durumunda loglama veya diğer işlemler burada yapılabilir
+                // Loglama örneği: _logger.LogError(ex, "TInsert metodu hatası");
+                throw; // Hata fırlatıldıktan sonra üst katmana aktar
+            }
 
         }
+
+
 
         public void TUpdate(Car entity)
         {

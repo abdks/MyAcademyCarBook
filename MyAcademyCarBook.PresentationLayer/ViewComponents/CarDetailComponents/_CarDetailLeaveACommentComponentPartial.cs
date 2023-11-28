@@ -4,8 +4,9 @@ namespace MyAcademyCarBook.PresentationLayer.ViewComponents.CarDetailComponents
 {
     public class _CarDetailLeaveACommentComponentPartial:ViewComponent
     {
-        public IViewComponentResult Invoke()
+        public IViewComponentResult Invoke(int id)
         { 
+
             return View(); 
         }
     }

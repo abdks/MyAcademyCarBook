@@ -1,0 +1,33 @@
+﻿@model List<MyAcademyCarBook.EntityLayer.Concrete.CarCategory>
+
+@{
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<br />
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Kategori Adı</th>
+        <th>Kategori Açıklaması</th>
+        <th>Durum</th>
+
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.CarCategoryID</td>
+            <td>@item.CategoryName</td>
+            <td>@item.Description</td>
+            <td>@item.Status</td>
+            <td><a href="/CarCategory/DeleteCarCategory/@item.CarCategoryID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/CarCategory/UpdateCarCategory/@item.CarCategoryID" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+
+</table>
+<a href="/CarCategory/AddCarCategory" class="btn btn-primary">Yeni Kategori Girişi</a>
+
