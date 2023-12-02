@@ -13,13 +13,7 @@ namespace MyAcademyCarBook.DataAccessLayer.EntityFramework
 {
     public class EfCarDetailDal : GenericRepository<CarDetails>, ICarDetailDal
     {
-        //public CarDetail GetCarDetailByCarID(int id)
-        //{
-        //    var context = new CarBookContext();
-        //    //var values = context.CarDetails.Where(x=> x.CarID == id).FirstOrDefault();
-        //    var values = context.CarDetails.Where(x=>x.CarID == id).FirstOrDefault();
-        //    return values;
-        //}
+       
         public CarDetails GetCarDetailByCarID(int id)
         {
             using (var context = new CarBookContext())

@@ -1,0 +1,103 @@
+﻿@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+@model IPagedList<Car>
+
+@{
+    ViewData["Title"] = "CarList";
+    Layout = "~/Views/UILayout/Index.cshtml";
+
+}
+<style>
+    .pagination-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+        .pagination-container .pagination li {
+            margin: 0 5px;
+            font-size: 18px;
+            list-style: none;
+            display: inline-block;
+        }
+
+            .pagination-container .pagination li a {
+                color: #fff;
+                background-color: #343a40; /* Dark background color */
+                padding: 8px 16px;
+                border-radius: 5px;
+                transition: background-color 0.3s ease;
+            }
+
+            .pagination-container .pagination li.active a {
+                background-color: #28a745; /* Green color for active page */
+            }
+
+            .pagination-container .pagination li a:hover {
+                background-color: #007bff; /* Blue color on hover */
+            }
+</style>
+
+<div class="site-section bg-light">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="item-1">
+                        <a href="#"><img src="@item.ImageUrl" alt="Image" class="img-fluid" style="height:200px; width:350px"></a>
+                        <div class="item-1-contents">
+                            <div class="text-center">
+                                <h3><a href="#">@item.Brand.BrandName @item.Model</a></h3>
+                                <div class="rating">
+                                    <span class="icon-star text-warning"></span>
+                                    <span class="icon-star text-warning"></span>
+                                    <span class="icon-star text-warning"></span>
+                                    <span class="icon-star text-warning"></span>
+                                    <span class="icon-star text-warning"></span>
+                                </div>
+                                <div class="rent-price"><span>1200TL/</span>Gün</div>
+                            </div>
+                            <ul class="specs">
+                                <li>
+                                    <span>Model Yılı</span>
+                                    <span class="spec">@item.Year</span>
+                                </li>
+                                <li>
+                                    <span>Kişi Sayısı Sayısı</span>
+                                    <span class="spec">@item.PersonCount</span>
+                                </li>
+                                <li>
+                                    <span>Vites Türü</span>
+                                    <span class="spec">@item.GearType</span>
+                                </li>
+                                <li>
+                                    <span>Km</span>
+                                    <span class="spec">@item.Km</span>
+                                </li>
+                            </ul>
+                            <div class="d-flex action">
+                                <a href="contact.html" class="btn btn-primary">Hemen Kirala</a>
+                                <a href="/Car/CarDetail/@item.CarID" class="btn btn-warning" style="margin-left:1.2rem">Araç Detayları</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+            <br /><br /><br />
+            <div class="row mt-5">
+                <div class="col text-center">
+                    <div class="block-27 text-center">
+                        <div class="text-center">
+                            @Html.PagedListPager((IPagedList)Model,page=>Url.Action("CarList",new {page}))
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

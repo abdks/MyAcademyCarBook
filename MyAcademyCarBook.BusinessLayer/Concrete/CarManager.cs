@@ -13,10 +13,43 @@ namespace MyAcademyCarBook.BusinessLayer.Concrete
     public class CarManager : ICarService
     {
         private readonly ICarDal _carDal;
+        private readonly IBrandDal _brandDal;
+        private readonly ICarCategoryDal _categoryDal;
+        private readonly ICarStatusDal _statusDal;
 
-        public CarManager(ICarDal carDal)
+        public CarManager(ICarDal carDal, IBrandDal brandDal, ICarCategoryDal categoryDal, ICarStatusDal statusDal)
         {
             _carDal = carDal;
+            _brandDal = brandDal;
+            _categoryDal = categoryDal;
+            _statusDal = statusDal;
+        }
+
+        public IEnumerable<Car> FilterCars(int brandId, int categoryId, int personcount, string gearType)
+        {
+            var cars = _carDal.GetAllCarsWithBrands().ToList(); // ToList() ekledik
+
+            if (brandId != 0)
+            {
+                cars = cars.Where(c => c.BrandID == brandId).ToList(); // ToList() ekledik
+            }
+
+            if (categoryId != 0)
+            {
+                cars = cars.Where(c => c.CarCategoryID == categoryId).ToList(); // ToList() ekledik
+            }
+
+            if (personcount != 0)
+            {
+                cars = cars.Where(c => c.PersonCount == personcount).ToList(); // ToList() ekledik
+            }
+
+            if (!string.IsNullOrEmpty(gearType))
+            {
+                cars = cars.Where(c => c.GearType == gearType).ToList(); // ToList() ekledik
+            }
+
+            return cars;
         }
 
         public void TDelete(Car entity)
@@ -26,7 +59,19 @@ namespace MyAcademyCarBook.BusinessLayer.Concrete
 
         public List<Car> TGetAllCarsWithBrands()
         {
-            return _carDal.GetAllCarsWithBrands();
+            var cars = _carDal.GetAllCarsWithBrands();
+
+            foreach (var car in cars)
+            {
+                var category = _carDal.GetCarCategoryById(car.CarCategoryID);
+                car.CarCategory = category; // Car sınıfında CarCategory property'si olmalı
+            }
+
+            return cars;
+
+
+
+           // return _carDal.GetAllCarsWithBrands();
         }
 
         public Car TGetById(int id)

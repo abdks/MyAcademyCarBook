@@ -12,10 +12,13 @@ namespace MyAcademyCarBook.BusinessLayer.Concrete
     public class CarDetailManager : ICarDetailService
     {
         private readonly ICarDetailDal _carDetailDal;
+        private readonly ICarService _carService;
 
-        public CarDetailManager(ICarDetailDal carDetailDal)
+
+        public CarDetailManager(ICarDetailDal carDetailDal, ICarService carService)
         {
             _carDetailDal = carDetailDal;
+            _carService = carService;
         }
 
         public void TDelete(CarDetails entity)
@@ -23,10 +26,7 @@ namespace MyAcademyCarBook.BusinessLayer.Concrete
             _carDetailDal.Delete(entity);
         }
 
-        public void TDelete(Brand entity)
-        {
-            throw new NotImplementedException();
-        }
+      
 
         public CarDetails TGetById(int id)
         {
@@ -41,6 +41,11 @@ namespace MyAcademyCarBook.BusinessLayer.Concrete
         public CarDetails TGetCarDetailWithAuthor(int id)
         {
             return _carDetailDal.GetCarDetailWithAuthor(id);
+        }
+
+        public List<Car> TGetCarList(int id)
+        {
+            return _carService.TGetListAll();
         }
 
         public List<CarDetails> TGetListAll()

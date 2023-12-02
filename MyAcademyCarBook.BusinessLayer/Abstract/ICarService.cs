@@ -11,5 +11,7 @@ namespace MyAcademyCarBook.BusinessLayer.Abstract
     {
         List<Car> TGetAllCarsWithBrands();
 
+        IEnumerable<Car> FilterCars(int brandId, int categoryId, int capacity, string gearType);
+
     }
 }

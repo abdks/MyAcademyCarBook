@@ -10,6 +10,7 @@ namespace MyAcademyCarBook.DataAccessLayer.Abstract
     public interface ICarDal : IGenericDal<Car>
     {
         List<Car> GetAllCarsWithBrands();
+        CarCategory GetCarCategoryById(int carcategory);
 
 
     }

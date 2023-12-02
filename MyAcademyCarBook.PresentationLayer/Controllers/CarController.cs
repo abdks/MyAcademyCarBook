@@ -31,6 +31,7 @@ namespace MyAcademyCarBook.PresentationLayer.Controllers
         {
             var values = _carService.TGetAllCarsWithBrands();
             return View(values);
+           
         }
         public IActionResult CarList(int page = 1) 
         {
@@ -162,7 +163,21 @@ namespace MyAcademyCarBook.PresentationLayer.Controllers
             _carService.TUpdate(car);
             return RedirectToAction("Index2");
         }
+        public IActionResult CarList2(int page = 1, int brandId = 0, int categoryId = 0, int capacity = 0, string gearType = "")
+        {
+            //var result = _carService.FilterCars(brandId, categoryId, capacity, gearType);
+            TempData["MyValue"] = gearType;
+            TempData["dene1"] = capacity;
+            TempData["dene2"] = categoryId;
+            TempData["dene3"] = brandId;
+          
+          
 
+            var result = _carService.TGetAllCarsWithBrands().Where(car => car.GearType == gearType && car.PersonCount==capacity && car.BrandID==brandId && car.CarCategoryID==categoryId);
+
+            var values = result.ToPagedList(page, 6);
+            return View(values);
+        }
 
 
 

@@ -12,6 +12,9 @@ namespace MyAcademyCarBook.BusinessLayer.Abstract
         CarDetails TGetCarDetailWithAuthor(int id);
 
         CarDetails TGetCarDetailByCarID(int id);
+            List<Car> TGetCarList(int id);
+
+
 
     }
 }
