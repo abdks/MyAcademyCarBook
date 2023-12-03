@@ -4,8 +4,7 @@
     Layout = "~/Views/AdminLayout/Index.cshtml";
 }
 
-<br />
-<br />
+<h1>Son Hizmet Listesi</h1>
 <table class="table table-bordered">
     <tr>
         <th>#</th>
@@ -21,7 +20,12 @@
         <tr>
             <td>@item.EndServiceID</td>
             <td>@item.ServiceTitle</td>
-            <td>@item.ServiceDescription</td>
+            <td>
+                @{
+                    var description = item.ServiceDescription.Length > 100 ? item.ServiceDescription.Substring(0, 20) + "..." : item.ServiceDescription;
+                    <text>@description</text>
+                }
+            </td>
             <td><img src="@item.ServiceImage" width="150px"height="150px"/></td>
             <td><a href="/EndService/DeleteService/@item.EndServiceID" class="btn btn-danger">Sil</a></td>
             <td><a href="/EndService/UpdateService/@item.EndServiceID" class="btn btn-success">Güncelle</a></td>

@@ -4,8 +4,8 @@
     Layout = "~/Views/AdminLayout/Index.cshtml";
 }
 
-<br />
-<br />
+<h1>Araç Detay Listesi</h1>
+
 <table class="table table-bordered">
     <tr>
         <th>#</th>
@@ -28,7 +28,7 @@
             <td>@item.AppUserID</td>
             <td>
                 @{
-                    var description = item.Description.Length > 300 ? item.Description.Substring(0, 300) + "..." : item.Description;
+                    var description = item.Description.Length > 300 ? item.Description.Substring(0, 100) + "..." : item.Description;
                     <text>@description</text>
                 }
             </td>

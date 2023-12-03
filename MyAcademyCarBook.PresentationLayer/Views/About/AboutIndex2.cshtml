@@ -4,8 +4,8 @@
     Layout = "~/Views/AdminLayout/Index.cshtml";
 }
 
-<br />
-<br />
+<h1>Hakkında Sayfası</h1>
+
 <table class="table table-bordered">
     <tr>
         <th>#</th>
@@ -22,8 +22,18 @@
         <tr>
             <td>@item.AboutID</td>
 
-            <td>@item.AboutDescription</td>
-            <td>@item.AboutHistory</td>
+            <td>
+                @{
+                    var description = item.AboutDescription.Length > 300 ? item.AboutDescription.Substring(0, 20) + "..." : item.AboutDescription;
+                    <text>@description</text>
+                }
+            </td>
+            <td>
+                @{
+                    var description2 = item.AboutHistory.Length > 300 ? item.AboutHistory.Substring(0, 20) + "..." : item.AboutHistory;
+                    <text>@description2</text>
+                }
+            </td>
             <td><img src="@item.AboutImageOne" width="200px" height="200px" /></td>
             <td><img src="@item.AboutImageTwo" width="200px" height="200px" /></td>
           
