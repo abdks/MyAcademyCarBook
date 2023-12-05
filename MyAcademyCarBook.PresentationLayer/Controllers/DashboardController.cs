@@ -13,18 +13,25 @@ namespace MyAcademyCarBook.PresentationLayer.Controllers
         private readonly ICarCategoryDal _categoryDal;
         private readonly IBrandDal _brandDal;
         private readonly IContactDal _contactDal;
-        public DashboardController(ICarDal carDal, ICarCategoryDal categoryDal, IBrandDal brandDal, IContactDal contactDal)
+        private readonly IContactFormDal _contactFormDal;
+        
+
+        public DashboardController(ICarDal carDal, ICarCategoryDal categoryDal, IBrandDal brandDal, IContactDal contactDal, IContactFormDal contactFormDal)
         {
             _carDal = carDal;
             _categoryDal = categoryDal;
             _brandDal = brandDal;
             _contactDal = contactDal;
+            _contactFormDal = contactFormDal;
         }
 
         public class DashboardViewModel
         {
             public List<Car> Cars { get; set; }
             public List<Contact> Contacts { get; set; }
+            public List<ContactForm> contactForms { get; set; }
+            public List<CarCategory> carCategories { get; set; }
+            public List<Brand> brands { get; set; }
         }
 
         public IActionResult Index()
@@ -38,7 +45,7 @@ namespace MyAcademyCarBook.PresentationLayer.Controllers
             int categoryCount = _categoryDal.GetAll().Count();
             int brandCount = _brandDal.GetAll().Count();
             int contactCount = _contactDal.GetAll().Count();
-
+            
             // View'e araç sayısını gönder
             ViewBag.CarCount = carCount;
             ViewBag.CategoryCount = categoryCount;
@@ -48,10 +55,16 @@ namespace MyAcademyCarBook.PresentationLayer.Controllers
             //Verileri Çek
             var cars = _carDal.GetAll();
             var contacts = _contactDal.GetAll();
+            var contactform = _contactFormDal.GetAll();
+            var carcategory = _categoryDal.GetAll();
+            var brand = _brandDal.GetAll();
             var viewModel = new DashboardViewModel
             {
                 Cars = cars,
-                Contacts = contacts
+                Contacts = contacts,
+                contactForms = contactform,
+                carCategories = carcategory,
+                brands = brand
             };
 
 
