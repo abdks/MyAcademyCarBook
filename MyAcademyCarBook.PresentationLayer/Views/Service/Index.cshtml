@@ -3,6 +3,9 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/UILayout/Index.cshtml";
 }
+<br />
+<br />
+<br />
 <div class="site-section">
     <div class="container">
         <div class="row">
@@ -12,9 +15,12 @@
                     <div class="service-1 dark">
                         <span class="service-1-icon">
                           @*   <span class="flaticon-car"></span> *@
-                            <span><img src="@item.Icon" width="50px" height="50px" /></span>
+                            <span><img src="@item.Icon"/></span>
+                         
                         </span>
                         <div class="service-1-contents">
+                            <br>
+                            <br>
                             <h3>@item.Title</h3>
                             <p>@item.Description</p>
                         </div>
@@ -24,4 +30,3 @@
         </div>
     </div>
 </div>
-@await Component.InvokeAsync("_IHowItWorksStepComponentPartial")
